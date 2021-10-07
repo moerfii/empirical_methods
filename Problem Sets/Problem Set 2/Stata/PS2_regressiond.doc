@@ -1,0 +1,24 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx2592\clbrdrt\brdrs\cellx4032
+\ql \cell\qc (1)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2592\cellx4032
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx2592\clbrdrb\brdrs\cellx4032
+\ql VARIABLES\cell\qc d\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2592\cellx4032
+\ql \cell\qc \cell\row
+\ql classize\cell\qc -0.110***\cell\row
+\ql \cell\qc (0.0291)\cell\row
+\ql many_dis\cell\qc -15.71***\cell\row
+\ql \cell\qc (1.346)\cell\row
+\ql many_disXclassize\cell\qc 0.269***\cell\row
+\ql \cell\qc (0.0438)\cell\row
+\ql Constant\cell\qc 79.52***\cell\row
+\ql \cell\qc (0.937)\cell\row
+\ql \cell\qc \cell\row
+\ql Observations\cell\qc 1,967\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx2592\clbrdrb\brdrs\cellx4032
+\ql R-squared\cell\qc 0.301\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

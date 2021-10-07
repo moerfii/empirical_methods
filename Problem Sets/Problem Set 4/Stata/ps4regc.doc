@@ -1,0 +1,39 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx2448\clbrdrt\brdrs\cellx4320
+\ql \cell\qc (1)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4320
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4320
+\ql VARIABLES\cell\qc s&m-FE\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4320
+\ql \cell\qc \cell\row
+\ql bin_1\cell\qc 0.00136***\cell\row
+\ql \cell\qc (0.000388)\cell\row
+\ql bin_2\cell\qc 0.00506***\cell\row
+\ql \cell\qc (0.000522)\cell\row
+\ql bin_3\cell\qc 0.00194***\cell\row
+\ql \cell\qc (0.000369)\cell\row
+\ql bin_4\cell\qc 0.00212***\cell\row
+\ql \cell\qc (0.000271)\cell\row
+\ql bin_5\cell\qc 0.00226***\cell\row
+\ql \cell\qc (0.000190)\cell\row
+\ql bin_6\cell\qc 0.00125***\cell\row
+\ql \cell\qc (0.000239)\cell\row
+\ql bin_8\cell\qc -0.000847***\cell\row
+\ql \cell\qc (0.000195)\cell\row
+\ql bin_9\cell\qc -0.00121***\cell\row
+\ql \cell\qc (0.000188)\cell\row
+\ql bin_10\cell\qc -0.00118**\cell\row
+\ql \cell\qc (0.000525)\cell\row
+\ql Constant\cell\qc 4.344***\cell\row
+\ql \cell\qc (0.00566)\cell\row
+\ql \cell\qc \cell\row
+\ql Observations\cell\qc 26,460\cell\row
+\ql Number of stfips\cell\qc 49\cell\row
+\ql R-squared\cell\qc 0.374\cell\row
+\ql State FE\cell\qc YES\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4320
+\ql Month FE\cell\qc YES\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

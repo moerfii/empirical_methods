@@ -1,0 +1,31 @@
+	(1)
+VARIABLES	s&m-FE
+	
+bin_1	0.00136***
+	(0.000388)
+bin_2	0.00506***
+	(0.000522)
+bin_3	0.00194***
+	(0.000369)
+bin_4	0.00212***
+	(0.000271)
+bin_5	0.00226***
+	(0.000190)
+bin_6	0.00125***
+	(0.000239)
+bin_8	-0.000847***
+	(0.000195)
+bin_9	-0.00121***
+	(0.000188)
+bin_10	-0.00118**
+	(0.000525)
+Constant	4.344***
+	(0.00566)
+	
+Observations	26,460
+Number of stfips	49
+R-squared	0.374
+State FE	YES
+Month FE	YES
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

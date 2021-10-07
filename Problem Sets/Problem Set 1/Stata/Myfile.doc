@@ -1,0 +1,429 @@
+{\rtf1\ansi\deff0 {\fonttbl{\f0\fnil Garamond;}}
+{\info {\author .}{\company .}{\title .}}
+\deflang1033\plain\fs20
+{\footer\pard\qc\plain\f0\fs20\chpgn\par}
+{
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+{\b\qc\line  }{\par}
+\fs20 {Marginal effects after regress}\line
+\fs20 {      y  = Fitted values (predict)}\line
+\fs20 {         =  8.6864932}\line
+{\par}
+{\trowd\trgaph108\trleft-108
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx1500
+\fs20\pard\intbl\ql { variable }\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx2700
+\fs20\pard\intbl\ql { dy/dx}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx3900
+\fs20\pard\intbl\ql { Std.Err.}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx5100
+\fs20\pard\intbl\ql { z}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx6300
+\fs20\pard\intbl\ql { P>z}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx7500
+\fs20\pard\intbl\ql { [}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx8700
+\fs20\pard\intbl\ql { 95%}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx9900
+\fs20\pard\intbl\ql { C.I.}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx11100
+\fs20\pard\intbl\ql { ]}\cell
+\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs \cellx12300
+\fs20\pard\intbl\ql { X}\cell
+\row}
+{\trowd\trgaph108\trleft-108
+\cellx1500
+\fs20\pard\intbl\ql {age }\cell
+\cellx2700
+\fs20\pard\intbl\ql {    0.826}\cell
+\cellx3900
+\fs20\pard\intbl\ql {    0.154}\cell
+\cellx5100
+\fs20\pard\intbl\ql {    5.350}\cell
+\cellx6300
+\fs20\pard\intbl\ql {    0.000}\cell
+\cellx7500
+\fs20\pard\intbl\ql {    0.523}\cell
+\cellx8700
+\fs20\pard\intbl\ql {    1.129}\cell
+\cellx9900
+\fs20\pard\intbl\ql {   41.238}\cell
+\row}
+{\trowd\trgaph108\trleft-108
+\cellx1500
+\fs20\pard\intbl\ql {age2 }\cell
+\cellx2700
+\fs20\pard\intbl\ql {   -0.010}\cell
+\cellx3900
+\fs20\pard\intbl\ql {    0.002}\cell
+\cellx5100
+\fs20\pard\intbl\ql {   -5.730}\cell
+\cellx6300
+\fs20\pard\intbl\ql {    0.000}\cell
+\cellx7500
+\fs20\pard\intbl\ql {   -0.013}\cell
+\cellx8700
+\fs20\pard\intbl\ql {   -0.006}\cell
+\cellx9900
+\fs20\pard\intbl\ql { 1990.140}\cell
+\row}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx9900\cell
+\row}
+
+
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+{
+{\b\qc\line Descriptive Statistics }{\par}
+\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx1500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx2300\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx3700\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx5100\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx6500\clbrdrt\brdrw10\brdrs \clbrdrb\brdrw25\brdrs\cellx7900
+\ql { Variable}\cell
+\qr { Obs}\cell
+\qr { Mean}\cell
+\qr { Std.Dev.}\cell
+\qr { Min}\cell
+\qr { Max}\cell
+\row
+\trowd\trgaph108\trleft-108\cellx1500\cellx2300\cellx3700\cellx5100\cellx6500\cellx7900
+\ql { cigs}\cell
+\qr {807}\cell
+\qr {8.686}\cell
+\qr {13.722}\cell
+\qr {0}\cell
+\qr {80}\cell
+\row
+\ql { educ}\cell
+\qr {807}\cell
+\qr {12.471}\cell
+\qr {3.057}\cell
+\qr {6}\cell
+\qr {18}\cell
+\row
+\ql { age}\cell
+\qr {807}\cell
+\qr {41.238}\cell
+\qr {17.027}\cell
+\qr {17}\cell
+\qr {88}\cell
+\row
+\ql { income}\cell
+\qr {807}\cell
+\qr {19304.83}\cell
+\qr {9142.958}\cell
+\qr {500}\cell
+\qr {30000}\cell
+\row
+\ql { white}\cell
+\qr {807}\cell
+\qr {.879}\cell
+\qr {.327}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+\ql { restaurn}\cell
+\qr {807}\cell
+\qr {.247}\cell
+\qr {.431}\cell
+\qr {0}\cell
+\qr {1}\cell
+\row
+}
+{\trowd\trgaph108\trleft-108
+\clbrdrb\brdrw15\brdrs\cellx7900\cell
+\row}
+
+
+\writepositionforappend
+}}

@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	Reg
+	
+educ	-0.219
+	(0.158)
+Constant	11.41***
+	(2.029)
+	
+Observations	807
+R-squared	0.002
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

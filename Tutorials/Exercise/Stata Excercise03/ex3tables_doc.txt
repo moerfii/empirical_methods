@@ -1,0 +1,14 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	b.i	c.ii	d.i	e.iii
+				
+corruptionun	0.626***	0.528***		0.358***
+	(0.0831)	(0.0905)		(0.0996)
+ruleoflaw			0.361***	
+			(0.0994)	
+Constant	7.93e-08	6.73e-08	-5.33e-11	4.13e-08
+	(0.0827)	(0.0900)	(0.0988)	(0.0990)
+				
+Observations	90	90	90	90
+R-squared	0.392	0.279	0.131	0.128
+Standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

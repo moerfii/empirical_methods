@@ -1,0 +1,3 @@
+Hence, clustering/robustifying standard errors with -xtreg- is not manadtory: it makes sense if you suspect heteroskedasticity/autocorrelation in your data (by the way, the latter is quite immaterial as long as you're dealing with a large N, small T panel dataset, as it frequently appears to be the case on this forum); otherwise, default standard errors are enough..
+
+https://www.statalist.org/forums/forum/general-stata-discussion/general/1409239-fixed-effects-and-clustering-the-standard-error

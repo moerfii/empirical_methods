@@ -1,0 +1,24 @@
+	(1)
+VARIABLES	alt
+	
+classize	0.00654
+	(0.0218)
+pct_dis	-0.309***
+	(0.0103)
+Reg1	3.501***
+	(0.431)
+Reg2	0.969**
+	(0.467)
+Reg3	0.399
+	(0.410)
+Reg4	3.258***
+	(0.419)
+Reg6	0.249
+	(0.360)
+Constant	75.55***
+	(0.801)
+	
+Observations	1,967
+R-squared	0.400
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

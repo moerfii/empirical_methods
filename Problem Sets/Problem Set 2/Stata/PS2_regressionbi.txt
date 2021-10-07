@@ -1,0 +1,14 @@
+	(1)	(2)
+VARIABLES	normal	log
+		
+classize	-0.0603***	-0.000700**
+	(0.0211)	(0.000303)
+pct_dis	-0.335***	-0.00483***
+	(0.0102)	(0.000146)
+Constant	79.05***	4.368***
+	(0.704)	(0.0101)
+		
+Observations	1,967	1,967
+R-squared	0.365	0.369
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

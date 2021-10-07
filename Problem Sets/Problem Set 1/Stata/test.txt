@@ -1,0 +1,20 @@
+	(1)
+VARIABLES	bla
+	
+educ	-0.452***
+	(0.162)
+age	0.826***
+	(0.154)
+age2	-0.00963***
+	(0.00168)
+white	-0.624
+	(1.456)
+restaurn	-2.796**
+	(1.104)
+Constant	0.669
+	(3.707)
+	
+Observations	807
+R-squared	0.051
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

@@ -1,0 +1,16 @@
+	(1)
+VARIABLES	1S
+	
+twihigh	0.631***
+	(0.0371)
+age	0.0531
+	(0.0756)
+agesq	-0.000930
+	(0.000938)
+Constant	4.835***
+	(1.535)
+	
+Observations	428
+R-squared	0.446
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

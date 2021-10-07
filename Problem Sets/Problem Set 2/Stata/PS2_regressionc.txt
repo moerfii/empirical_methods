@@ -1,0 +1,14 @@
+	(1)
+VARIABLES	c
+	
+small_size	2.560
+	(2.004)
+pct_dis	-0.327***
+	(0.00977)
+Constant	77.10***
+	(0.183)
+	
+Observations	1,967
+R-squared	0.363
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

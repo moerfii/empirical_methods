@@ -1,0 +1,657 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata\log_gmuer_ramon_PS2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Nov 2019, 17:42:25
+{txt}
+{com}. 
+. use "C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata\class_size_pset.dta"
+{txt}
+{com}. 
+. *Empirical Question
+. 
+. **a)
+. 
+. gen big_school = 0
+{txt}
+{com}. replace big_school = 1 if n_classes > 2
+{txt}(863 real changes made)
+
+{com}. 
+. ***a-i)
+. 
+. reg mrkgrm classize
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(1, 1965)      = {res}    28.22
+{txt}       Model {c |} {res} 1396.59756         1  1396.59756   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 97259.1452     1,965  49.4957482   {txt}R-squared       ={res}    0.0142
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0137
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 7.0353
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .1341112{col 26}{space 2} .0252472{col 37}{space 1}    5.31{col 46}{space 3}0.000{col 54}{space 4} .0845971{col 67}{space 3} .1836254
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  68.6283{col 26}{space 2} .7839904{col 37}{space 1}   87.54{col 46}{space 3}0.000{col 54}{space 4} 67.09076{col 67}{space 3} 70.16584
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. outreg2 using "PS2_regressiona.doc", replace ctitle(a-i)
+{txt}{stata `"shellout using `"PS2_regressiona.doc"'"':PS2_regressiona.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiona.txt""':seeout}
+
+{com}. 
+. ***a-ii)
+. 
+. reg mrkgrm classize big_school
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(2, 1964)      = {res}    21.03
+{txt}       Model {c |} {res} 2068.58052         2  1034.29026   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 96587.1622     1,964  49.1787995   {txt}R-squared       ={res}    0.0210
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0200
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 7.0128
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .1019125{col 26}{space 2} .0266311{col 37}{space 1}    3.83{col 46}{space 3}0.000{col 54}{space 4} .0496844{col 67}{space 3} .1541407
+{txt}{space 2}big_school {c |}{col 14}{res}{space 2} 1.246412{col 26}{space 2} .3371876{col 37}{space 1}    3.70{col 46}{space 3}0.000{col 54}{space 4} .5851293{col 67}{space 3} 1.907695
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 69.06062{col 26}{space 2} .7901793{col 37}{space 1}   87.40{col 46}{space 3}0.000{col 54}{space 4} 67.51094{col 67}{space 3}  70.6103
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. outreg2 using "PS2_regressiona.doc", append ctitle(a-ii)
+{txt}{stata `"shellout using `"PS2_regressiona.doc"'"':PS2_regressiona.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiona.txt""':seeout}
+
+{com}. 
+. **b)
+. 
+. drop big_school
+{txt}
+{com}. 
+. ***b-i)
+. 
+. gen ln_mrkgrm = log(mrkgrm)
+{txt}
+{com}. reg mrkgrm classize pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(2, 1964)      = {res}   564.86
+{txt}       Model {c |} {res}  36025.757         2  18012.8785   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 62629.9858     1,964  31.8889948   {txt}R-squared       ={res}    0.3652
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3645
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res}  5.647
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.0602863{col 26}{space 2} .0211063{col 37}{space 1}   -2.86{col 46}{space 3}0.004{col 54}{space 4}-.1016794{col 67}{space 3}-.0188931
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.3348571{col 26}{space 2} .0101615{col 37}{space 1}  -32.95{col 46}{space 3}0.000{col 54}{space 4}-.3547856{col 67}{space 3}-.3149286
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 79.05196{col 26}{space 2} .7043112{col 37}{space 1}  112.24{col 46}{space 3}0.000{col 54}{space 4} 77.67068{col 67}{space 3} 80.43323
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionbi.doc", replace ctitle(normal)
+{txt}{stata `"shellout using `"PS2_regressionbi.doc"'"':PS2_regressionbi.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionbi.txt""':seeout}
+
+{com}. reg ln_mrkgrm classize pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(2, 1964)      = {res}   573.18
+{txt}       Model {c |} {res} 7.53443573         2  3.76721786   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 12.9082879     1,964  .006572448   {txt}R-squared       ={res}    0.3686
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3679
+{txt}       Total {c |} {res} 20.4427236     1,966   .01039813   {txt}Root MSE        =   {res} .08107
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   ln_mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.0007001{col 26}{space 2}  .000303{col 37}{space 1}   -2.31{col 46}{space 3}0.021{col 54}{space 4}-.0012944{col 67}{space 3}-.0001059
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.0048256{col 26}{space 2} .0001459{col 37}{space 1}  -33.08{col 46}{space 3}0.000{col 54}{space 4}-.0051117{col 67}{space 3}-.0045395
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.367718{col 26}{space 2} .0101113{col 37}{space 1}  431.96{col 46}{space 3}0.000{col 54}{space 4} 4.347888{col 67}{space 3} 4.387548
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionbi.doc", append ctitle(log)
+{txt}{stata `"shellout using `"PS2_regressionbi.doc"'"':PS2_regressionbi.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionbi.txt""':seeout}
+
+{com}. 
+. ***b-ii)
+. 
+. **c)
+. 
+. gen small_size = 0
+{txt}
+{com}. replace small_size = 1 if classize <= 10
+{txt}(8 real changes made)
+
+{com}. 
+. reg mrkgrm small_size pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(2, 1964)      = {res}   559.74
+{txt}       Model {c |} {res} 35817.7919         2  17908.8959   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 62837.9509     1,964  31.9948833   {txt}R-squared       ={res}    0.3631
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3624
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 5.6564
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}small_size {c |}{col 14}{res}{space 2} 2.559678{col 26}{space 2} 2.003923{col 37}{space 1}    1.28{col 46}{space 3}0.202{col 54}{space 4}-1.370361{col 67}{space 3} 6.489718
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.3267693{col 26}{space 2} .0097728{col 37}{space 1}  -33.44{col 46}{space 3}0.000{col 54}{space 4}-.3459354{col 67}{space 3}-.3076032
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 77.09925{col 26}{space 2} .1834885{col 37}{space 1}  420.19{col 46}{space 3}0.000{col 54}{space 4} 76.73939{col 67}{space 3}  77.4591
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionc.doc", replace ctitle(c)
+{txt}{stata `"shellout using `"PS2_regressionc.doc"'"':PS2_regressionc.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionc.txt""':seeout}
+
+{com}. test _b[small_size]=0
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}small_size = 0{p_end}
+
+{txt}       F(  1,  1964) ={res}    1.63
+{txt}{col 13}Prob > F ={res}    0.2016
+{txt}
+{com}. local sign_ss = sign(_b[small_size])
+{txt}
+{com}. display "Ho: coef <= 0  p-value = " ttail(r(df_r),`sign_ss'*sqrt(r(F)))
+{res}Ho: coef <= 0  p-value = .10081773
+{txt}
+{com}. 
+. ***c-i)
+. 
+. ****Hand- and Stata-Testing!!!
+. 
+. ***c-ii)
+. 
+. reg mrkgrm pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(1, 1965)      = {res}  1117.49
+{txt}       Model {c |} {res} 35765.5896         1  35765.5896   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 62890.1531     1,965   32.005167   {txt}R-squared       ={res}    0.3625
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3622
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 5.6573
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}pct_dis {c |}{col 14}{res}{space 2}-.3267448{col 26}{space 2} .0097743{col 37}{space 1}  -33.43{col 46}{space 3}0.000{col 54}{space 4}-.3459139{col 67}{space 3}-.3075757
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 77.10933{col 26}{space 2} .1833481{col 37}{space 1}  420.56{col 46}{space 3}0.000{col 54}{space 4} 76.74975{col 67}{space 3}  77.4689
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressioncii.doc", replace ctitle(1)
+{txt}{stata `"shellout using `"PS2_regressioncii.doc"'"':PS2_regressioncii.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressioncii.txt""':seeout}
+
+{com}. predict residuals1, residuals
+{txt}
+{com}. 
+. reg small_size pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(1, 1965)      = {res}     0.01
+{txt}       Model {c |} {res}  .00003067         1   .00003067   {txt}Prob > F        ={res}    0.9307
+{txt}    Residual {c |} {res} 7.96743247     1,965  .004054673   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0005
+{txt}       Total {c |} {res} 7.96746314     1,966  .004052626   {txt}Root MSE        =   {res} .06368
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  small_size{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}pct_dis {c |}{col 14}{res}{space 2} 9.57e-06{col 26}{space 2}   .00011{col 37}{space 1}    0.09{col 46}{space 3}0.931{col 54}{space 4}-.0002062{col 67}{space 3} .0002253
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0039382{col 26}{space 2} .0020637{col 37}{space 1}    1.91{col 46}{space 3}0.056{col 54}{space 4}-.0001091{col 67}{space 3} .0079854
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressioncii.doc", append ctitle(2)
+{txt}{stata `"shellout using `"PS2_regressioncii.doc"'"':PS2_regressioncii.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressioncii.txt""':seeout}
+
+{com}. predict residuals2, residuals
+{txt}
+{com}. 
+. reg residuals1 residuals2 
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(1, 1965)      = {res}     1.63
+{txt}       Model {c |} {res} 52.2022502         1  52.2022502   {txt}Prob > F        ={res}    0.2015
+{txt}    Residual {c |} {res} 62837.9512     1,965  31.9786011   {txt}R-squared       ={res}    0.0008
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0003
+{txt}       Total {c |} {res} 62890.1534     1,966  31.9888878   {txt}Root MSE        =   {res}  5.655
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  residuals1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}residuals2 {c |}{col 14}{res}{space 2} 2.559679{col 26}{space 2} 2.003413{col 37}{space 1}    1.28{col 46}{space 3}0.202{col 54}{space 4}-1.369359{col 67}{space 3} 6.488716
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-6.64e-09{col 26}{space 2} .1275051{col 37}{space 1}   -0.00{col 46}{space 3}1.000{col 54}{space 4}-.2500594{col 67}{space 3} .2500594
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressioncii.doc", append ctitle(3)
+{txt}{stata `"shellout using `"PS2_regressioncii.doc"'"':PS2_regressioncii.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressioncii.txt""':seeout}
+
+{com}. 
+. ***c-iii)
+. 
+. egen mean_mrkgrm = mean(mrkgrm)
+{txt}
+{com}. egen mean_small_size = mean(small_size)
+{txt}
+{com}. egen mean_pct_dis = mean(pct_dis)
+{txt}
+{com}. 
+. display mean_mrkgrm - mean_small_size*2.559768 - mean_pct_dis*-.3267693
+{res}77.099243
+{txt}
+{com}. 
+. ***c-iv)
+. 
+. reg ln_mrkgrm small_size pct_dis
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(2, 1964)      = {res}   570.24
+{txt}       Model {c |} {res}  7.5099808         2   3.7549904   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 12.9327428     1,964    .0065849   {txt}R-squared       ={res}    0.3674
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3667
+{txt}       Total {c |} {res} 20.4427236     1,966   .01039813   {txt}Root MSE        =   {res} .08115
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   ln_mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}small_size {c |}{col 14}{res}{space 2} .0365346{col 26}{space 2} .0287485{col 37}{space 1}    1.27{col 46}{space 3}0.204{col 54}{space 4}-.0198462{col 67}{space 3} .0929154
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.0047317{col 26}{space 2} .0001402{col 37}{space 1}  -33.75{col 46}{space 3}0.000{col 54}{space 4}-.0050067{col 67}{space 3}-.0044568
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.345013{col 26}{space 2} .0026323{col 37}{space 1} 1650.62{col 46}{space 3}0.000{col 54}{space 4} 4.339851{col 67}{space 3} 4.350176
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionciv.doc", replace ctitle(c-iv)
+{txt}{stata `"shellout using `"PS2_regressionciv.doc"'"':PS2_regressionciv.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionciv.txt""':seeout}
+
+{com}. 
+. 
+. **d)
+. 
+. gen many_dis = 0
+{txt}
+{com}. replace many_dis = 1 if pct_dis > 10
+{txt}(858 real changes made)
+
+{com}. gen many_disXclassize = many_dis*classize
+{txt}
+{com}. reg mrkgrm classize many_dis many_disXclassize
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(3, 1963)      = {res}   281.14
+{txt}       Model {c |} {res} 29649.3319         3  9883.11065   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 69006.4108     1,963   35.153546   {txt}R-squared       ={res}    0.3005
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2995
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res}  5.929
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           mrkgrm{col 19}{c |}      Coef.{col 31}   Std. Err.{col 43}      t{col 51}   P>|t|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}classize {c |}{col 19}{res}{space 2}-.1101571{col 31}{space 2} .0291463{col 42}{space 1}   -3.78{col 51}{space 3}0.000{col 59}{space 4}-.1673179{col 72}{space 3}-.0529962
+{txt}{space 9}many_dis {c |}{col 19}{res}{space 2}-15.71298{col 31}{space 2} 1.346291{col 42}{space 1}  -11.67{col 51}{space 3}0.000{col 59}{space 4}-18.35329{col 72}{space 3}-13.07267
+{txt}many_disXclassize {c |}{col 19}{res}{space 2} .2686753{col 31}{space 2}  .043792{col 42}{space 1}    6.14{col 51}{space 3}0.000{col 59}{space 4} .1827916{col 72}{space 3}  .354559
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 79.52074{col 31}{space 2} .9369263{col 42}{space 1}   84.87{col 51}{space 3}0.000{col 59}{space 4} 77.68326{col 72}{space 3} 81.35821
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressiond.doc", replace ctitle(d)
+{txt}{stata `"shellout using `"PS2_regressiond.doc"'"':PS2_regressiond.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiond.txt""':seeout}
+
+{com}. 
+. ***d-i)
+. 
+. test _b[many_dis]=0
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}many_dis = 0{p_end}
+
+{txt}       F(  1,  1963) ={res}  136.22
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. test _b[many_disXclassize]=0, accumulate
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}many_dis = 0{p_end}
+{p 0 7}{space 1}{text:( 2)}{space 1} many_disXclassize = 0{p_end}
+
+{txt}       F(  2,  1963) ={res}  401.85
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. 
+.         
+. ****Ru^2=0.3005
+. reg mrkgrm classize
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(1, 1965)      = {res}    28.22
+{txt}       Model {c |} {res} 1396.59756         1  1396.59756   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 97259.1452     1,965  49.4957482   {txt}R-squared       ={res}    0.0142
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0137
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 7.0353
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .1341112{col 26}{space 2} .0252472{col 37}{space 1}    5.31{col 46}{space 3}0.000{col 54}{space 4} .0845971{col 67}{space 3} .1836254
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  68.6283{col 26}{space 2} .7839904{col 37}{space 1}   87.54{col 46}{space 3}0.000{col 54}{space 4} 67.09076{col 67}{space 3} 70.16584
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ****Rr^2=0.0142
+. ****q=2, N-K=df=1,963
+. display ((0.3005-0.0142)/2)/((1-0.3005)/1963)
+{res}401.72044
+{txt}
+{com}. 
+. 
+. ***d-ii)
+. 
+. **e)
+. 
+. reg mrkgrm classize if many_dis == 1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       858
+{txt}{hline 13}{c +}{hline 34}   F(1, 856)       = {res}    18.08
+{txt}       Model {c |} {res} 826.915211         1  826.915211   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}   39159.72       856  45.7473364   {txt}R-squared       ={res}    0.0207
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0195
+{txt}       Total {c |} {res} 39986.6352       857  46.6588509   {txt}Root MSE        =   {res} 6.7637
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .1585182{col 26}{space 2} .0372848{col 37}{space 1}    4.25{col 46}{space 3}0.000{col 54}{space 4} .0853379{col 67}{space 3} .2316986
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 63.80775{col 26}{space 2} 1.102878{col 37}{space 1}   57.86{col 46}{space 3}0.000{col 54}{space 4} 61.64309{col 67}{space 3} 65.97241
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressione.doc", replace ctitle(high dis)
+{txt}{stata `"shellout using `"PS2_regressione.doc"'"':PS2_regressione.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressione.txt""':seeout}
+
+{com}. reg mrkgrm classize if many_dis == 0
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,109
+{txt}{hline 13}{c +}{hline 34}   F(1, 1107)      = {res}    18.62
+{txt}       Model {c |} {res} 502.144157         1  502.144157   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 29846.6908     1,107  26.9617803   {txt}R-squared       ={res}    0.0165
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0157
+{txt}       Total {c |} {res}  30348.835     1,108  27.3906453   {txt}Root MSE        =   {res} 5.1925
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.1101571{col 26}{space 2} .0255254{col 37}{space 1}   -4.32{col 46}{space 3}0.000{col 54}{space 4}-.1602407{col 67}{space 3}-.0600735
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 79.52074{col 26}{space 2} .8205313{col 37}{space 1}   96.91{col 46}{space 3}0.000{col 54}{space 4} 77.91076{col 67}{space 3} 81.13071
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressione.doc", append ctitle(low dis)
+{txt}{stata `"shellout using `"PS2_regressione.doc"'"':PS2_regressione.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressione.txt""':seeout}
+
+{com}. reg mrkgrm classize many_dis many_disXclassize
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(3, 1963)      = {res}   281.14
+{txt}       Model {c |} {res} 29649.3319         3  9883.11065   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 69006.4108     1,963   35.153546   {txt}R-squared       ={res}    0.3005
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2995
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res}  5.929
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           mrkgrm{col 19}{c |}      Coef.{col 31}   Std. Err.{col 43}      t{col 51}   P>|t|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}classize {c |}{col 19}{res}{space 2}-.1101571{col 31}{space 2} .0291463{col 42}{space 1}   -3.78{col 51}{space 3}0.000{col 59}{space 4}-.1673179{col 72}{space 3}-.0529962
+{txt}{space 9}many_dis {c |}{col 19}{res}{space 2}-15.71298{col 31}{space 2} 1.346291{col 42}{space 1}  -11.67{col 51}{space 3}0.000{col 59}{space 4}-18.35329{col 72}{space 3}-13.07267
+{txt}many_disXclassize {c |}{col 19}{res}{space 2} .2686753{col 31}{space 2}  .043792{col 42}{space 1}    6.14{col 51}{space 3}0.000{col 59}{space 4} .1827916{col 72}{space 3}  .354559
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 79.52074{col 31}{space 2} .9369263{col 42}{space 1}   84.87{col 51}{space 3}0.000{col 59}{space 4} 77.68326{col 72}{space 3} 81.35821
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressione.doc", append ctitle(d)
+{txt}{stata `"shellout using `"PS2_regressione.doc"'"':PS2_regressione.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressione.txt""':seeout}
+
+{com}. 
+. **f)
+. 
+. foreach regioncode in Reg1 Reg2 Reg3 Reg4 Reg5 Reg6{c -(}
+{txt}  2{com}.         gen `regioncode' = 0
+{txt}  3{com}.         replace `regioncode' = 1 if regioncode == "`regioncode'"
+{txt}  4{com}. {c )-}
+{txt}(255 real changes made)
+(195 real changes made)
+(267 real changes made)
+(276 real changes made)
+(574 real changes made)
+(400 real changes made)
+
+{com}. 
+. **g)
+. 
+. reg mrkgrm classize pct_dis if regioncode == "Reg1"
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       255
+{txt}{hline 13}{c +}{hline 34}   F(2, 252)       = {res}    66.06
+{txt}       Model {c |} {res} 2865.43406         2  1432.71703   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 5465.35025       252  21.6878978   {txt}R-squared       ={res}    0.3440
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3388
+{txt}       Total {c |} {res} 8330.78431       254  32.7983634   {txt}Root MSE        =   {res}  4.657
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.0900784{col 26}{space 2} .0450526{col 37}{space 1}   -2.00{col 46}{space 3}0.047{col 54}{space 4}-.1788059{col 67}{space 3}-.0013508
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.2490626{col 26}{space 2} .0218086{col 37}{space 1}  -11.42{col 46}{space 3}0.000{col 54}{space 4}-.2920129{col 67}{space 3}-.2061122
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 81.00851{col 26}{space 2} 1.311482{col 37}{space 1}   61.77{col 46}{space 3}0.000{col 54}{space 4} 78.42564{col 67}{space 3} 83.59137
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressiong.doc", replace ctitle(Reg1)
+{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+{com}. foreach regioncode in Reg2 Reg3 Reg4 Reg5 Reg6{c -(}
+{txt}  2{com}.         reg mrkgrm classize pct_dis if regioncode =="`regioncode'"
+{txt}  3{com}.         outreg2 using "PS2_regressiong.doc", append ctitle(`regioncode')
+{txt}  4{com}. {c )-}
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       195
+{txt}{hline 13}{c +}{hline 34}   F(2, 192)       = {res}    34.84
+{txt}       Model {c |} {res} 3017.96063         2  1508.98031   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 8314.72655       192  43.3058675   {txt}R-squared       ={res}    0.2663
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2587
+{txt}       Total {c |} {res} 11332.6872       194  58.4159133   {txt}Root MSE        =   {res} 6.5807
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} -.054951{col 26}{space 2} .0822927{col 37}{space 1}   -0.67{col 46}{space 3}0.505{col 54}{space 4}-.2172648{col 67}{space 3} .1073629
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.2521636{col 26}{space 2} .0309288{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.3131675{col 67}{space 3}-.1911597
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 77.17122{col 26}{space 2} 2.510945{col 37}{space 1}   30.73{col 46}{space 3}0.000{col 54}{space 4} 72.21864{col 67}{space 3}  82.1238
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       267
+{txt}{hline 13}{c +}{hline 34}   F(2, 264)       = {res}    45.65
+{txt}       Model {c |} {res} 2924.30927         2  1462.15463   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 8456.43979       264  32.0319689   {txt}R-squared       ={res}    0.2570
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2513
+{txt}       Total {c |} {res} 11380.7491       266  42.7847709   {txt}Root MSE        =   {res} 5.6597
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .1678957{col 26}{space 2} .0669434{col 37}{space 1}    2.51{col 46}{space 3}0.013{col 54}{space 4} .0360848{col 67}{space 3} .2997067
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.2127071{col 26}{space 2}  .027496{col 37}{space 1}   -7.74{col 46}{space 3}0.000{col 54}{space 4}-.2668463{col 67}{space 3}-.1585678
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 69.64526{col 26}{space 2} 2.225889{col 37}{space 1}   31.29{col 46}{space 3}0.000{col 54}{space 4}  65.2625{col 67}{space 3} 74.02801
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       276
+{txt}{hline 13}{c +}{hline 34}   F(2, 273)       = {res}    84.22
+{txt}       Model {c |} {res} 4600.18127         2  2300.09063   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 7455.58685       273  27.3098419   {txt}R-squared       ={res}    0.3816
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3770
+{txt}       Total {c |} {res} 12055.7681       275  43.8391568   {txt}Root MSE        =   {res} 5.2259
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .0074092{col 26}{space 2} .0458776{col 37}{space 1}    0.16{col 46}{space 3}0.872{col 54}{space 4}-.0829096{col 67}{space 3} .0977281
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.4898067{col 26}{space 2} .0388518{col 37}{space 1}  -12.61{col 46}{space 3}0.000{col 54}{space 4}-.5662939{col 67}{space 3}-.4133195
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 80.17505{col 26}{space 2} 1.479157{col 37}{space 1}   54.20{col 46}{space 3}0.000{col 54}{space 4} 77.26304{col 67}{space 3} 83.08705
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       574
+{txt}{hline 13}{c +}{hline 34}   F(2, 571)       = {res}   169.65
+{txt}       Model {c |} {res} 10101.2705         2  5050.63523   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 16999.5884       571  29.7716085   {txt}R-squared       ={res}    0.3727
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3705
+{txt}       Total {c |} {res} 27100.8589       573  47.2964378   {txt}Root MSE        =   {res} 5.4563
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .0212184{col 26}{space 2} .0429338{col 37}{space 1}    0.49{col 46}{space 3}0.621{col 54}{space 4}-.0631092{col 67}{space 3} .1055459
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.3191605{col 26}{space 2} .0195322{col 37}{space 1}  -16.34{col 46}{space 3}0.000{col 54}{space 4}-.3575243{col 67}{space 3}-.2807967
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 75.24485{col 26}{space 2} 1.556768{col 37}{space 1}   48.33{col 46}{space 3}0.000{col 54}{space 4} 72.18715{col 67}{space 3} 78.30254
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       400
+{txt}{hline 13}{c +}{hline 34}   F(2, 397)       = {res}   168.84
+{txt}       Model {c |} {res} 8889.58149         2  4444.79075   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  10451.356       397  26.3258338   {txt}R-squared       ={res}    0.4596
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.4569
+{txt}       Total {c |} {res} 19340.9375       399  48.4735276   {txt}Root MSE        =   {res} 5.1309
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.0758319{col 26}{space 2} .0540577{col 37}{space 1}   -1.40{col 46}{space 3}0.161{col 54}{space 4}-.1821071{col 67}{space 3} .0304432
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.4038452{col 26}{space 2} .0231615{col 37}{space 1}  -17.44{col 46}{space 3}0.000{col 54}{space 4}-.4493797{col 67}{space 3}-.3583107
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 79.62101{col 26}{space 2} 1.882575{col 37}{space 1}   42.29{col 46}{space 3}0.000{col 54}{space 4} 75.91994{col 67}{space 3} 83.32207
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}{stata `"shellout using `"PS2_regressiong.doc"'"':PS2_regressiong.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiong.txt""':seeout}
+
+{com}. 
+. ****Model alternative: Dummy with ommitting Reg5:
+. reg mrkgrm classize pct_dis Reg1 Reg2 Reg3 Reg4 Reg6
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,967
+{txt}{hline 13}{c +}{hline 34}   F(7, 1959)      = {res}   186.70
+{txt}       Model {c |} {res} 39479.1959         7  5639.88513   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 59176.5468     1,959  30.2075277   {txt}R-squared       ={res}    0.4002
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3980
+{txt}       Total {c |} {res} 98655.7428     1,966  50.1809475   {txt}Root MSE        =   {res} 5.4961
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}  .006539{col 26}{space 2} .0218313{col 37}{space 1}    0.30{col 46}{space 3}0.765{col 54}{space 4} -.036276{col 67}{space 3}  .049354
+{txt}{space 5}pct_dis {c |}{col 14}{res}{space 2}-.3085222{col 26}{space 2} .0102683{col 37}{space 1}  -30.05{col 46}{space 3}0.000{col 54}{space 4}-.3286603{col 67}{space 3}-.2883842
+{txt}{space 8}Reg1 {c |}{col 14}{res}{space 2} 3.501301{col 26}{space 2} .4311002{col 37}{space 1}    8.12{col 46}{space 3}0.000{col 54}{space 4} 2.655837{col 67}{space 3} 4.346764
+{txt}{space 8}Reg2 {c |}{col 14}{res}{space 2} .9691248{col 26}{space 2} .4671522{col 37}{space 1}    2.07{col 46}{space 3}0.038{col 54}{space 4} .0529574{col 67}{space 3} 1.885292
+{txt}{space 8}Reg3 {c |}{col 14}{res}{space 2} .3992164{col 26}{space 2} .4098365{col 37}{space 1}    0.97{col 46}{space 3}0.330{col 54}{space 4}-.4045451{col 67}{space 3} 1.202978
+{txt}{space 8}Reg4 {c |}{col 14}{res}{space 2} 3.257748{col 26}{space 2} .4188072{col 37}{space 1}    7.78{col 46}{space 3}0.000{col 54}{space 4} 2.436394{col 67}{space 3} 4.079103
+{txt}{space 8}Reg6 {c |}{col 14}{res}{space 2} .2489347{col 26}{space 2} .3595311{col 37}{space 1}    0.69{col 46}{space 3}0.489{col 54}{space 4} -.456169{col 67}{space 3} .9540384
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 75.55303{col 26}{space 2} .8013656{col 37}{space 1}   94.28{col 46}{space 3}0.000{col 54}{space 4} 73.98141{col 67}{space 3} 77.12465
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressiongalt.doc", replace ctitle(alt)
+{txt}{stata `"shellout using `"PS2_regressiongalt.doc"'"':PS2_regressiongalt.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressiongalt.txt""':seeout}
+
+{com}. 
+. **h)
+. 
+. ***h-i)
+. 
+. reg mrkgrm classize sc_boys if n_classes == 1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       240
+{txt}{hline 13}{c +}{hline 34}   F(2, 237)       = {res}     2.12
+{txt}       Model {c |} {res} 378.269997         2  189.134999   {txt}Prob > F        ={res}    0.1222
+{txt}    Residual {c |} {res} 21139.3133       237  89.1954149   {txt}R-squared       ={res}    0.0176
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0093
+{txt}       Total {c |} {res} 21517.5833       239  90.0317294   {txt}Root MSE        =   {res} 9.4443
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2} .0964143{col 26}{space 2} .1099979{col 37}{space 1}    0.88{col 46}{space 3}0.382{col 54}{space 4}-.1202843{col 67}{space 3} .3131129
+{txt}{space 5}sc_boys {c |}{col 14}{res}{space 2}-.3024193{col 26}{space 2} .1529586{col 37}{space 1}   -1.98{col 46}{space 3}0.049{col 54}{space 4}-.6037514{col 67}{space 3}-.0010871
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 72.92232{col 26}{space 2} 2.177034{col 37}{space 1}   33.50{col 46}{space 3}0.000{col 54}{space 4} 68.63352{col 67}{space 3} 77.21113
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionhi.doc", replace ctitle(1)
+{txt}{stata `"shellout using `"PS2_regressionhi.doc"'"':PS2_regressionhi.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionhi.txt""':seeout}
+
+{com}. 
+. ***h-ii)
+. 
+. reg mrkgrm sc_girls sc_boys if n_classes == 1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       240
+{txt}{hline 13}{c +}{hline 34}   F(2, 237)       = {res}     2.12
+{txt}       Model {c |} {res} 378.269997         2  189.134999   {txt}Prob > F        ={res}    0.1222
+{txt}    Residual {c |} {res} 21139.3133       237  89.1954149   {txt}R-squared       ={res}    0.0176
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0093
+{txt}       Total {c |} {res} 21517.5833       239  90.0317294   {txt}Root MSE        =   {res} 9.4443
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}sc_girls {c |}{col 14}{res}{space 2} .0964143{col 26}{space 2} .1099979{col 37}{space 1}    0.88{col 46}{space 3}0.382{col 54}{space 4}-.1202843{col 67}{space 3} .3131129
+{txt}{space 5}sc_boys {c |}{col 14}{res}{space 2} -.206005{col 26}{space 2} .1150097{col 37}{space 1}   -1.79{col 46}{space 3}0.075{col 54}{space 4} -.432577{col 67}{space 3}  .020567
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 72.92232{col 26}{space 2} 2.177034{col 37}{space 1}   33.50{col 46}{space 3}0.000{col 54}{space 4} 68.63352{col 67}{space 3} 77.21113
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS2_regressionhii.doc", replace ctitle(1)
+{txt}{stata `"shellout using `"PS2_regressionhii.doc"'"':PS2_regressionhii.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS2_regressionhii.txt""':seeout}
+
+{com}. 
+. correlate sc_boys sc_girls
+{txt}(obs=1,967)
+
+             {c |}  sc_boys sc_girls
+{hline 13}{c +}{hline 18}
+     sc_boys {c |}{res}   1.0000
+    {txt}sc_girls {c |}{res}   0.7918   1.0000
+
+{txt}
+{com}. reg mrkgrm classize if n_classes == 1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       240
+{txt}{hline 13}{c +}{hline 34}   F(1, 238)       = {res}     0.33
+{txt}       Model {c |} {res} 29.6008824         1  29.6008824   {txt}Prob > F        ={res}    0.5675
+{txt}    Residual {c |} {res} 21487.9825       238  90.2856406   {txt}R-squared       ={res}    0.0014
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0028
+{txt}       Total {c |} {res} 21517.5833       239  90.0317294   {txt}Root MSE        =   {res} 9.5019
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      mrkgrm{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}classize {c |}{col 14}{res}{space 2}-.0475071{col 26}{space 2} .0829689{col 37}{space 1}   -0.57{col 46}{space 3}0.567{col 54}{space 4}-.2109544{col 67}{space 3} .1159402
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 72.65987{col 26}{space 2} 2.186222{col 37}{space 1}   33.24{col 46}{space 3}0.000{col 54}{space 4} 68.35305{col 67}{space 3} 76.96668
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. view "C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 2\Stata\log_gmuer_ramon_PS2.smcl"
+
+. exit, clear

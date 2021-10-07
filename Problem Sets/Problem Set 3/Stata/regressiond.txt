@@ -1,0 +1,10 @@
+	(1)	(2)
+VARIABLES	OLS	IV
+		
+dhigh	0.0283	0.0358
+	(0.0189)	(0.0272)
+		
+Observations	210	210
+R-squared	0.011	
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

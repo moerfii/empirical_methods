@@ -1,0 +1,14 @@
+	(1)	(2)
+VARIABLES	a-i	a-ii
+		
+classize	0.134***	0.102***
+	(0.0252)	(0.0266)
+big_school		1.246***
+		(0.337)
+Constant	68.63***	69.06***
+	(0.784)	(0.790)
+		
+Observations	1,967	1,967
+R-squared	0.014	0.021
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

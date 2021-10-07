@@ -1,0 +1,14 @@
+	(1)	(2)	(3)
+VARIABLES	1	2	3
+			
+pct_dis	-0.327***	9.57e-06	
+	(0.00977)	(0.000110)	
+residuals2			2.560
+			(2.003)
+Constant	77.11***	0.00394*	-6.64e-09
+	(0.183)	(0.00206)	(0.128)
+			
+Observations	1,967	1,967	1,967
+R-squared	0.363	0.000	0.001
+Standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

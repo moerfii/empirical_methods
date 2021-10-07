@@ -1,0 +1,14 @@
+	(1)
+VARIABLES	c-iv
+	
+small_size	0.0365
+	(0.0287)
+pct_dis	-0.00473***
+	(0.000140)
+Constant	4.345***
+	(0.00263)
+	
+Observations	1,967
+R-squared	0.367
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

@@ -1,0 +1,132 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03\log_gmuer_ramon_PS2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}20 Nov 2019, 15:08:16
+{txt}
+{com}. 
+. insheet using "C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03\indicators.csv"
+{txt}(7 vars, 90 obs)
+
+{com}. 
+. *b)
+. 
+. **i)
+. reg mortalityun corruptionun
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(1, 88)        = {res}    56.69
+{txt}       Model {c |} {res} 34.8687415         1  34.8687415   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 54.1312585        88  .615127938   {txt}R-squared       ={res}    0.3918
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.3849
+{txt}       Total {c |} {res}         89        89           1   {txt}Root MSE        =   {res}  .7843
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} mortalityun{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+corruptionun {c |}{col 14}{res}{space 2} .6259262{col 26}{space 2} .0831357{col 37}{space 1}    7.53{col 46}{space 3}0.000{col 54}{space 4} .4607114{col 67}{space 3}  .791141
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.93e-08{col 26}{space 2} .0826726{col 37}{space 1}    0.00{col 46}{space 3}1.000{col 54}{space 4}-.1642943{col 67}{space 3} .1642945
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "ex3tables.doc", replace ctitle(b.i)
+{txt}{stata `"shellout using `"ex3tables.doc"'"':ex3tables.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03"' :dir}{com} : {txt}{stata `"seeout using "ex3tables.txt""':seeout}
+
+{com}. 
+. ***big change (0.62 SD)
+. 
+. **iii)
+. twoway (scatter mortalityun corruptionun) (lfitci mortalityun corruptionun)
+{res}{txt}
+{com}. 
+. *c)
+. 
+. **ii)
+. reg hospital_deaths corruption
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(1, 88)        = {res}    34.06
+{txt}       Model {c |} {res} 24.8331058         1  24.8331058   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 64.1668939        88  .729169249   {txt}R-squared       ={res}    0.2790
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2708
+{txt}       Total {c |} {res} 88.9999997        89  .999999997   {txt}Root MSE        =   {res} .85391
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}hospital_d~s{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+corruptionun {c |}{col 14}{res}{space 2} .5282269{col 26}{space 2} .0905147{col 37}{space 1}    5.84{col 46}{space 3}0.000{col 54}{space 4} .3483479{col 67}{space 3} .7081059
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6.73e-08{col 26}{space 2} .0900104{col 37}{space 1}    0.00{col 46}{space 3}1.000{col 54}{space 4}-.1788768{col 67}{space 3} .1788769
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "ex3tables.doc", append ctitle(c.ii)
+{txt}{stata `"shellout using `"ex3tables.doc"'"':ex3tables.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03"' :dir}{com} : {txt}{stata `"seeout using "ex3tables.txt""':seeout}
+
+{com}. 
+. **iii)
+. twoway (lfitci mortalityun corruptionun) (lfitci hospital_deaths corruptionun) (scatter mortalityun corruptionun) (scatter hospital_deaths corruptionun)
+{res}{txt}
+{com}. ***no ci due to overlapping
+. 
+. *d)
+. 
+. **i)
+. reg mortalityun ruleoflaw
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(1, 88)        = {res}    13.21
+{txt}       Model {c |} {res} 11.6199509         1  11.6199509   {txt}Prob > F        ={res}    0.0005
+{txt}    Residual {c |} {res} 77.3800491        88   .87931874   {txt}R-squared       ={res}    0.1306
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1207
+{txt}       Total {c |} {res}         89        89           1   {txt}Root MSE        =   {res} .93772
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} mortalityun{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}ruleoflaw {c |}{col 14}{res}{space 2} .3613326{col 26}{space 2} .0993981{col 37}{space 1}    3.64{col 46}{space 3}0.000{col 54}{space 4} .1637997{col 67}{space 3} .5588655
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-5.33e-11{col 26}{space 2} .0988444{col 37}{space 1}   -0.00{col 46}{space 3}1.000{col 54}{space 4}-.1964324{col 67}{space 3} .1964324
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "ex3tables.doc", append ctitle(d.i)
+{txt}{stata `"shellout using `"ex3tables.doc"'"':ex3tables.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03"' :dir}{com} : {txt}{stata `"seeout using "ex3tables.txt""':seeout}
+
+{com}. 
+. ***plot same as in c.iii)
+. 
+. *e)
+. 
+. **iii)
+. reg govmort corruptionun
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        90
+{txt}{hline 13}{c +}{hline 34}   F(1, 88)        = {res}    12.90
+{txt}       Model {c |} {res} 11.3802172         1  11.3802172   {txt}Prob > F        ={res}    0.0005
+{txt}    Residual {c |} {res} 77.6197813        88  .882042969   {txt}R-squared       ={res}    0.1279
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1180
+{txt}       Total {c |} {res} 88.9999985        89  .999999983   {txt}Root MSE        =   {res} .93917
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     govmort{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+corruptionun {c |}{col 14}{res}{space 2} .3575858{col 26}{space 2}  .099552{col 37}{space 1}    3.59{col 46}{space 3}0.001{col 54}{space 4} .1597472{col 67}{space 3} .5554244
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.13e-08{col 26}{space 2} .0989974{col 37}{space 1}    0.00{col 46}{space 3}1.000{col 54}{space 4}-.1967364{col 67}{space 3} .1967365
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "ex3tables.doc", append ctitle(e.iii)
+{txt}{stata `"shellout using `"ex3tables.doc"'"':ex3tables.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Tutorials\Exercise\Stata Excercise03"' :dir}{com} : {txt}{stata `"seeout using "ex3tables.txt""':seeout}
+
+{com}. 
+{txt}end of do-file
+
+{com}. seeout using "ex3tables.txt"
+{res}Hit Enter to continue{com}. seeout using "ex3tables.txt"
+
+. seeout using "ex3tables.txt"
+{res}Hit Enter to continue{com}. exit, clear
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1), local:r(1);}
+
+{com}. exit, clear

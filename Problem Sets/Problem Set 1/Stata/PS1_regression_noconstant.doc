@@ -1,0 +1,18 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx1872\clbrdrt\brdrs\cellx3168
+\ql \cell\qc (1)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3168
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3168
+\ql VARIABLES\cell\qc Reg\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3168
+\ql \cell\qc \cell\row
+\ql educ\cell\qc 0.645***\cell\row
+\ql \cell\qc (0.0383)\cell\row
+\ql \cell\qc \cell\row
+\ql Observations\cell\qc 807\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3168
+\ql R-squared\cell\qc 0.260\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

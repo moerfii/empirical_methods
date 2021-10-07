@@ -1,0 +1,16 @@
+	(1)	(2)	(3)
+VARIABLES	high dis	low dis	d
+			
+classize	0.159***	-0.110***	-0.110***
+	(0.0373)	(0.0255)	(0.0291)
+many_dis			-15.71***
+			(1.346)
+many_disXclassize			0.269***
+			(0.0438)
+Constant	63.81***	79.52***	79.52***
+	(1.103)	(0.821)	(0.937)
+			
+Observations	858	1,109	1,967
+R-squared	0.021	0.017	0.301
+Standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

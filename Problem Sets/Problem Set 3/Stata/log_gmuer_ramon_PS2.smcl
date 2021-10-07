@@ -1,0 +1,395 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata\log_gmuer_ramon_PS2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 4 Dec 2019, 15:12:09
+{txt}
+{com}. 
+. insheet using "C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata\BCHHS_data.csv"
+{txt}(18 vars, 428 obs)
+
+{com}. 
+. *1)
+. 
+. gen lnearn = log(earning)
+{txt}
+{com}. gen agesq = age^2
+{txt}
+{com}. 
+. 
+. **a)
+. 
+. reg lnearn highqua age agesq
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       428
+{txt}{hline 13}{c +}{hline 34}   F(3, 424)       = {res}    24.72
+{txt}       Model {c |} {res} 20.7258534         3   6.9086178   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 118.492426       424  .279463268   {txt}R-squared       ={res}    0.1489
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1429
+{txt}       Total {c |} {res} 139.218279       427  .326038124   {txt}Root MSE        =   {res} .52864
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      lnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}highqua {c |}{col 14}{res}{space 2} .0767543{col 26}{space 2} .0105917{col 37}{space 1}    7.25{col 46}{space 3}0.000{col 54}{space 4} .0559355{col 67}{space 3} .0975731
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0778154{col 26}{space 2} .0213949{col 37}{space 1}    3.64{col 46}{space 3}0.000{col 54}{space 4} .0357622{col 67}{space 3} .1198687
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2}-.0009675{col 26}{space 2} .0002658{col 37}{space 1}   -3.64{col 46}{space 3}0.000{col 54}{space 4}-.0014899{col 67}{space 3}-.0004451
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.4282208{col 26}{space 2} .4347756{col 37}{space 1}   -0.98{col 46}{space 3}0.325{col 54}{space 4}-1.282805{col 67}{space 3} .4263631
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "regressiona.doc", replace ctitle(OLS)
+{txt}{stata `"shellout using `"regressiona.doc"'"':regressiona.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressiona.txt""':seeout}
+
+{com}. ivreg lnearn age agesq (highqua = twihigh)
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       428
+{txt}{hline 13}{c +}{hline 34}   F(3, 424)       = {res}    16.40
+{txt}       Model {c |} {res} 20.4445064         3  6.81483547   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 118.773773       424  .280126822   {txt}R-squared       ={res}    0.1469
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.1408
+{txt}       Total {c |} {res} 139.218279       427  .326038124   {txt}Root MSE        =   {res} .52927
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      lnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}highqua {c |}{col 14}{res}{space 2} .0873817{col 26}{space 2} .0166363{col 37}{space 1}    5.25{col 46}{space 3}0.000{col 54}{space 4} .0546818{col 67}{space 3} .1200815
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0764781{col 26}{space 2} .0214809{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} .0342558{col 67}{space 3} .1187005
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2}-.0009428{col 26}{space 2} .0002677{col 37}{space 1}   -3.52{col 46}{space 3}0.000{col 54}{space 4}-.0014691{col 67}{space 3}-.0004165
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.5684209{col 26}{space 2} .4669861{col 37}{space 1}   -1.22{col 46}{space 3}0.224{col 54}{space 4}-1.486317{col 67}{space 3} .3494751
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}highqua{p_end}
+{p 0 15 23}Instruments:{space 3}age agesq twihigh{p_end}
+{hline 78}
+
+{com}. outreg2 using "regressiona.doc", append ctitle(IV)
+{txt}{stata `"shellout using `"regressiona.doc"'"':regressiona.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressiona.txt""':seeout}
+
+{com}. 
+. **b)
+. 
+. ***v)
+. reg highqua twihigh age agesq
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       428
+{txt}{hline 13}{c +}{hline 34}   F(3, 424)       = {res}   113.80
+{txt}       Model {c |} {res} 1190.87218         3  396.957394   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  1478.9666       424  3.48812878   {txt}R-squared       ={res}    0.4460
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.4421
+{txt}       Total {c |} {res} 2669.83879       427  6.25254985   {txt}Root MSE        =   {res} 1.8677
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     highqua{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}twihigh {c |}{col 14}{res}{space 2} .6312721{col 26}{space 2} .0370589{col 37}{space 1}   17.03{col 46}{space 3}0.000{col 54}{space 4} .5584302{col 67}{space 3} .7041141
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0531199{col 26}{space 2} .0755603{col 37}{space 1}    0.70{col 46}{space 3}0.482{col 54}{space 4}-.0953996{col 67}{space 3} .2016394
+{txt}{space 7}agesq {c |}{col 14}{res}{space 2}-.0009302{col 26}{space 2} .0009385{col 37}{space 1}   -0.99{col 46}{space 3}0.322{col 54}{space 4}-.0027749{col 67}{space 3} .0009144
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  4.83493{col 26}{space 2} 1.535057{col 37}{space 1}    3.15{col 46}{space 3}0.002{col 54}{space 4} 1.817661{col 67}{space 3} 7.852198
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "regressionb.doc", replace ctitle(1S)
+{txt}{stata `"shellout using `"regressionb.doc"'"':regressionb.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressionb.txt""':seeout}
+
+{com}. test _b[twihigh]=0
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}twihigh = 0{p_end}
+
+{txt}       F(  1,   424) ={res}  290.17
+{txt}{col 13}Prob > F ={res}    0.0000
+{txt}
+{com}. 
+. **c)
+. 
+. drop schyear lnandse part full self married own_exp bweight exp_par parted sm16 sm18
+{txt}
+{com}. reshape wide lnearn highqua twihigh earning, i(family) j(twinno)
+{txt}(note: j = 1 2)
+
+Data{col 36}long{col 43}->{col 48}wide
+{hline 77}
+Number of obs.                 {res}     428   {txt}->{res}     214
+{txt}Number of variables            {res}       8   {txt}->{res}      11
+{txt}j variable (2 values)            {res}twinno   {txt}->   (dropped)
+xij variables:
+                                 {res}lnearn   {txt}->   {res}lnearn1 lnearn2
+                                highqua   {txt}->   {res}highqua1 highqua2
+                                twihigh   {txt}->   {res}twihigh1 twihigh2
+                                earning   {txt}->   {res}earning1 earning2
+{txt}{hline 77}
+
+{com}. 
+. gen dlnearn = lnearn1 - lnearn2
+{txt}
+{com}. gen dhigh = highqua1 - highqua2
+{txt}
+{com}. gen dtwihigh = twihigh1 - twihigh2
+{txt}
+{com}. 
+. gen dearn = earning1 - earning2
+{txt}
+{com}. *This one is for d)
+. 
+. reg dlnearn dhigh, nocons
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 213)       = {res}     3.04
+{txt}       Model {c |} {res} 1.43564569         1  1.43564569   {txt}Prob > F        ={res}    0.0826
+{txt}    Residual {c |} {res}  100.55228       213  .472076434   {txt}R-squared       ={res}    0.0141
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0094
+{txt}       Total {c |} {res} 101.987926       214  .476579094   {txt}Root MSE        =   {res} .68708
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0393535{col 26}{space 2} .0225666{col 37}{space 1}    1.74{col 46}{space 3}0.083{col 54}{space 4}-.0051289{col 67}{space 3}  .083836
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "regressionc.doc", replace ctitle(OLS)
+{txt}{stata `"shellout using `"regressionc.doc"'"':regressionc.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressionc.txt""':seeout}
+
+{com}. ivreg dlnearn (dhigh = dtwihigh), nocons
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 213)       = {res}        .
+{txt}       Model {c |} {res} .096383507         1  .096383507   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 101.891543       213   .47836405   {txt}R-squared       ={res}         .
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}         .
+{txt}       Total {c |} {res} 101.987926       214  .476579094   {txt}Root MSE        =   {res} .69164
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0773631{col 26}{space 2} .0330598{col 37}{space 1}    2.34{col 46}{space 3}0.020{col 54}{space 4} .0121968{col 67}{space 3} .1425294
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. outreg2 using "regressionc.doc", append ctitle(IV)
+{txt}{stata `"shellout using `"regressionc.doc"'"':regressionc.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressionc.txt""':seeout}
+
+{com}. 
+. ***ii)
+. 
+. reg dlnearn dhigh
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 212)       = {res}     3.01
+{txt}       Model {c |} {res}  1.4249932         1   1.4249932   {txt}Prob > F        ={res}    0.0844
+{txt}    Residual {c |} {res} 100.508895       212   .47409856   {txt}R-squared       ={res}    0.0140
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0093
+{txt}       Total {c |} {res} 101.933888       213  .478562854   {txt}Root MSE        =   {res} .68855
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0392153{col 26}{space 2} .0226195{col 37}{space 1}    1.73{col 46}{space 3}0.084{col 54}{space 4}-.0053727{col 67}{space 3} .0838032
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0142415{col 26}{space 2} .0470778{col 37}{space 1}    0.30{col 46}{space 3}0.763{col 54}{space 4}-.0785591{col 67}{space 3}  .107042
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "regressionc2.doc", replace ctitle(OLS)
+{txt}{stata `"shellout using `"regressionc2.doc"'"':regressionc2.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressionc2.txt""':seeout}
+
+{com}. ivreg dlnearn (dhigh = dtwihigh)
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 212)       = {res}     5.54
+{txt}       Model {c |} {res}  .04558248         1   .04558248   {txt}Prob > F        ={res}    0.0195
+{txt}    Residual {c |} {res} 101.888306       212  .480605215   {txt}R-squared       ={res}    0.0004
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0043
+{txt}       Total {c |} {res} 101.933888       213  .478562854   {txt}Root MSE        =   {res} .69326
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0777982{col 26}{space 2} .0330489{col 37}{space 1}    2.35{col 46}{space 3}0.019{col 54}{space 4} .0126517{col 67}{space 3} .1429448
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0126188{col 26}{space 2} .0474104{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-.0808375{col 67}{space 3} .1060751
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. outreg2 using "regressionc2.doc", append ctitle(IV)
+{txt}{stata `"shellout using `"regressionc2.doc"'"':regressionc2.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressionc2.txt""':seeout}
+
+{com}. 
+. **d)
+. 
+. gen absearn = abs(dearn)
+{txt}
+{com}. preserve
+{txt}
+{com}. drop if absearn > 60
+{txt}(4 observations deleted)
+
+{com}. 
+. reg dlnearn dhigh, nocons
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       210
+{txt}{hline 13}{c +}{hline 34}   F(1, 209)       = {res}     2.24
+{txt}       Model {c |} {res} .736676732         1  .736676732   {txt}Prob > F        ={res}    0.1361
+{txt}    Residual {c |} {res} 68.7836569       209  .329108406   {txt}R-squared       ={res}    0.0106
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0059
+{txt}       Total {c |} {res} 69.5203336       210  .331049208   {txt}Root MSE        =   {res} .57368
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0282666{col 26}{space 2} .0188931{col 37}{space 1}    1.50{col 46}{space 3}0.136{col 54}{space 4} -.008979{col 67}{space 3} .0655121
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "regressiond.doc", replace ctitle(OLS)
+{txt}{stata `"shellout using `"regressiond.doc"'"':regressiond.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressiond.txt""':seeout}
+
+{com}. ivreg dlnearn (dhigh = dtwihigh), nocons
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       210
+{txt}{hline 13}{c +}{hline 34}   F(1, 209)       = {res}        .
+{txt}       Model {c |} {res} .684658057         1  .684658057   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 68.8356756       209  .329357299   {txt}R-squared       ={res}         .
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}         .
+{txt}       Total {c |} {res} 69.5203336       210  .331049208   {txt}Root MSE        =   {res}  .5739
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0357778{col 26}{space 2} .0272474{col 37}{space 1}    1.31{col 46}{space 3}0.191{col 54}{space 4}-.0179371{col 67}{space 3} .0894928
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. outreg2 using "regressiond.doc", append ctitle(IV)
+{txt}{stata `"shellout using `"regressiond.doc"'"':regressiond.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 3\Stata"' :dir}{com} : {txt}{stata `"seeout using "regressiond.txt""':seeout}
+
+{com}. 
+. restore
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ramon\AppData\Local\Temp\STD01000000.tmp"
+{txt}
+{com}. preserve
+{txt}
+{com}. drop if absearn > 60
+{txt}(4 observations deleted)
+
+{com}. 
+{txt}end of do-file
+
+{com}. ivreg dlnearn (dhigh = dtwihigh)
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 212)       = {res}     5.54
+{txt}       Model {c |} {res}  .04558248         1   .04558248   {txt}Prob > F        ={res}    0.0195
+{txt}    Residual {c |} {res} 101.888306       212  .480605215   {txt}R-squared       ={res}    0.0004
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0043
+{txt}       Total {c |} {res} 101.933888       213  .478562854   {txt}Root MSE        =   {res} .69326
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0777982{col 26}{space 2} .0330489{col 37}{space 1}    2.35{col 46}{space 3}0.019{col 54}{space 4} .0126517{col 67}{space 3} .1429448
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0126188{col 26}{space 2} .0474104{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-.0808375{col 67}{space 3} .1060751
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. ivreg dlnearn (dhigh = dtwihigh), nocons
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       214
+{txt}{hline 13}{c +}{hline 34}   F(1, 213)       = {res}        .
+{txt}       Model {c |} {res} .096383507         1  .096383507   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 101.891543       213   .47836405   {txt}R-squared       ={res}         .
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}         .
+{txt}       Total {c |} {res} 101.987926       214  .476579094   {txt}Root MSE        =   {res} .69164
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0773631{col 26}{space 2} .0330598{col 37}{space 1}    2.34{col 46}{space 3}0.020{col 54}{space 4} .0121968{col 67}{space 3} .1425294
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. preserve
+
+. do "C:\Users\ramon\AppData\Local\Temp\STD01000000.tmp"
+{txt}
+{com}. drop if absearn > 60
+{txt}(4 observations deleted)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\ramon\AppData\Local\Temp\STD01000000.tmp"
+{txt}
+{com}. ivreg dlnearn (dhigh = dtwihigh), nocons
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       210
+{txt}{hline 13}{c +}{hline 34}   F(1, 209)       = {res}        .
+{txt}       Model {c |} {res} .684658057         1  .684658057   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 68.8356756       209  .329357299   {txt}R-squared       ={res}         .
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}         .
+{txt}       Total {c |} {res} 69.5203336       210  .331049208   {txt}Root MSE        =   {res}  .5739
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0357778{col 26}{space 2} .0272474{col 37}{space 1}    1.31{col 46}{space 3}0.191{col 54}{space 4}-.0179371{col 67}{space 3} .0894928
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. 
+{txt}end of do-file
+
+{com}. ivreg dlnearn (dhigh = dtwihigh)
+
+{txt}Instrumental variables (2SLS) regression
+
+      Source {c |}       SS           df       MS      Number of obs   ={res}       210
+{txt}{hline 13}{c +}{hline 34}   F(1, 208)       = {res}     1.89
+{txt}       Model {c |} {res} .619589522         1  .619589522   {txt}Prob > F        ={res}    0.1709
+{txt}    Residual {c |} {res} 68.4219465       208  .328951666   {txt}R-squared       ={res}    0.0090
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0042
+{txt}       Total {c |} {res}  69.041536       209  .330342278   {txt}Root MSE        =   {res} .57354
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     dlnearn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}dhigh {c |}{col 14}{res}{space 2} .0373033{col 26}{space 2} .0271466{col 37}{space 1}    1.37{col 46}{space 3}0.171{col 54}{space 4}-.0162144{col 67}{space 3} .0908209
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0456176{col 26}{space 2} .0396086{col 37}{space 1}    1.15{col 46}{space 3}0.251{col 54}{space 4}-.0324682{col 67}{space 3} .1237034
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 23}Instrumented:{space 2}dhigh{p_end}
+{p 0 15 23}Instruments:{space 3}dtwihigh{p_end}
+{hline 78}
+
+{com}. exit, clear

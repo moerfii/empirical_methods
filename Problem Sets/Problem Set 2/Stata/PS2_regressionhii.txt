@@ -1,0 +1,14 @@
+	(1)
+VARIABLES	1
+	
+sc_girls	0.0964
+	(0.110)
+sc_boys	-0.206*
+	(0.115)
+Constant	72.92***
+	(2.177)
+	
+Observations	240
+R-squared	0.018
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

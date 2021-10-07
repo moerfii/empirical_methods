@@ -1,0 +1,37 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx2448\clbrdrt\brdrs\cellx4032\clbrdrt\brdrs\cellx5760\clbrdrt\brdrs\cellx7488
+\ql \cell\qc (1)\cell\qc (2)\cell\qc (3)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4032\cellx5760\cellx7488
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4032\clbrdrb\brdrs\cellx5760\clbrdrb\brdrs\cellx7488
+\ql VARIABLES\cell\qc MVA\cell\qc CVD\cell\qc d\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2448\cellx4032\cellx5760\cellx7488
+\ql \cell\qc \cell\qc \cell\qc \cell\row
+\ql bin_1\cell\qc -0.00637*\cell\qc 0.0190***\cell\qc 0.00432***\cell\row
+\ql \cell\qc (0.00330)\cell\qc (0.00138)\cell\qc (0.000727)\cell\row
+\ql bin_2\cell\qc 0.00569\cell\qc 0.0166***\cell\qc 0.00666***\cell\row
+\ql \cell\qc (0.00404)\cell\qc (0.00163)\cell\qc (0.000829)\cell\row
+\ql bin_3\cell\qc 0.00464**\cell\qc 0.0132***\cell\qc 0.00422***\cell\row
+\ql \cell\qc (0.00233)\cell\qc (0.00127)\cell\qc (0.000587)\cell\row
+\ql bin_4\cell\qc 0.00568*\cell\qc 0.0105***\cell\qc 0.00421***\cell\row
+\ql \cell\qc (0.00290)\cell\qc (0.00126)\cell\qc (0.000620)\cell\row
+\ql bin_5\cell\qc 0.00346**\cell\qc 0.00562***\cell\qc 0.00285***\cell\row
+\ql \cell\qc (0.00172)\cell\qc (0.000817)\cell\qc (0.000337)\cell\row
+\ql bin_6\cell\qc 0.00235*\cell\qc 0.00316***\cell\qc 0.00112***\cell\row
+\ql \cell\qc (0.00136)\cell\qc (0.000924)\cell\qc (0.000383)\cell\row
+\ql bin_8\cell\qc -0.00206\cell\qc -0.00135**\cell\qc -3.08e-06\cell\row
+\ql \cell\qc (0.00130)\cell\qc (0.000644)\cell\qc (0.000281)\cell\row
+\ql bin_9\cell\qc -0.00560**\cell\qc -0.00486***\cell\qc 0.000995***\cell\row
+\ql \cell\qc (0.00243)\cell\qc (0.000986)\cell\qc (0.000355)\cell\row
+\ql bin_10\cell\qc -0.0343***\cell\qc -0.0108***\cell\qc 0.00250***\cell\row
+\ql \cell\qc (0.00825)\cell\qc (0.00252)\cell\qc (0.000761)\cell\row
+\ql Constant\cell\qc -6.282***\cell\qc -3.398***\cell\qc 4.417***\cell\row
+\ql \cell\qc (0.0524)\cell\qc (0.0262)\cell\qc (0.0113)\cell\row
+\ql \cell\qc \cell\qc \cell\qc \cell\row
+\ql Observations\cell\qc 26,453\cell\qc 26,460\cell\qc 26,460\cell\row
+\ql Number of stfips\cell\qc 49\cell\qc 49\cell\qc 49\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx2448\clbrdrb\brdrs\cellx4032\clbrdrb\brdrs\cellx5760\clbrdrb\brdrs\cellx7488
+\ql State/Month FE\cell\qc YES\cell\qc YES\cell\qc YES\cell\row
+\pard\qc
+Robust standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

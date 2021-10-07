@@ -1,0 +1,306 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata\log_gmuer_ramon_PS1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}21 Oct 2019, 15:13:29
+{txt}
+{com}. 
+. use "C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata\smoke.dta"
+{txt}
+{com}. 
+. *8a) How many obs
+. 
+. display _N
+{res}807
+{txt}
+{com}. 
+. *8b) Summary statistics for cigs, educ, age, income, white, restaurn
+. 
+. asdoc sum cigs educ age income white restaurn
+{txt}(File Myfile.doc already exists, option {bf:append} was assumed)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}cigs {c |}{res}        807    8.686493    13.72152          0         80
+{txt}{space 8}educ {c |}{res}        807    12.47088    3.057161          6         18
+{txt}{space 9}age {c |}{res}        807    41.23792    17.02729         17         88
+{txt}{space 6}income {c |}{res}        807    19304.83    9142.958        500      30000
+{txt}{space 7}white {c |}{res}        807    .8785626    .3268375          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 4}restaurn {c |}{res}        807    .2465923    .4312946          0          1
+Click to Open File:  {browse "Myfile.doc"}
+{txt}
+{com}. 
+. *8c)
+. **i) Compute Beta 1 and 2 (error in the PS, we use 1 and 2, not 0 and 1)
+. ***B2) 
+. gen COV = 0
+{txt}
+{com}. correlate educ cigs, covariance
+{txt}(obs=807)
+
+             {c |}     educ     cigs
+{hline 13}{c +}{hline 18}
+        educ {c |}{res}  9.34624
+        {txt}cigs {c |}{res} -2.04264   188.28
+
+{txt}
+{com}. replace COV = r(cov_12)
+{txt}(807 real changes made)
+
+{com}. 
+. egen SD = sd(educ)
+{txt}
+{com}. gen VAR = SD^2
+{txt}
+{com}. 
+. display COV/VAR
+{res}-.21855212
+{txt}
+{com}. 
+. ***B1)
+. gen B2 = COV/VAR
+{txt}
+{com}. 
+. gen mean_cigs = 0
+{txt}
+{com}. mean(cigs)
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       807
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}cigs {c |}{col 14}{res}{space 2} 8.686493{col 26}{space 2} .4830202{col 37}{space 5} 7.738367{col 51}{space 3} 9.634619
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. matrix b=e(b)
+{txt}
+{com}. replace mean_cigs=b[1,1]
+{txt}(807 real changes made)
+
+{com}. 
+. gen mean_educ = 0
+{txt}
+{com}. mean(educ)
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       807
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2} 12.47088{col 26}{space 2} .1076172{col 37}{space 5} 12.25964{col 51}{space 3} 12.68212
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. matrix b=e(b)
+{txt}
+{com}. replace mean_educ=b[1,1]
+{txt}(807 real changes made)
+
+{com}. 
+. gen B1 = mean_cigs - mean_educ*B2
+{txt}
+{com}. 
+. display B1
+{res}11.41203
+{txt}
+{com}. 
+. **ii) Regression
+. 
+. reg cigs educ
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       807
+{txt}{hline 13}{c +}{hline 34}   F(1, 805)       = {res}     1.91
+{txt}       Model {c |} {res} 359.817074         1  359.817074   {txt}Prob > F        ={res}    0.1670
+{txt}    Residual {c |} {res} 151393.866       805  188.066914   {txt}R-squared       ={res}    0.0024
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0011
+{txt}       Total {c |} {res} 151753.683       806  188.280003   {txt}Root MSE        =   {res} 13.714
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cigs{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2}-.2185521{col 26}{space 2} .1580048{col 37}{space 1}   -1.38{col 46}{space 3}0.167{col 54}{space 4}-.5287022{col 67}{space 3}  .091598
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 11.41203{col 26}{space 2} 2.028732{col 37}{space 1}    5.63{col 46}{space 3}0.000{col 54}{space 4} 7.429801{col 67}{space 3} 15.39426
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS1_regression.doc", replace ctitle(Reg)
+{txt}{stata `"shellout using `"PS1_regression.doc"'"':PS1_regression.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS1_regression.txt""':seeout}
+
+{com}. 
+. **iv) Estimates
+. 
+. graph twoway (lfit cigs educ) (scatter cigs educ)
+{res}{txt}
+{com}. 
+. **v)
+. 
+. reg cigs educ, noconstant
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       807
+{txt}{hline 13}{c +}{hline 34}   F(1, 806)       = {res}   283.28
+{txt}       Model {c |} {res} 55301.1489         1  55301.1489   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 157344.851       806  195.216937   {txt}R-squared       ={res}    0.2601
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2591
+{txt}       Total {c |} {res}     212646       807  263.501859   {txt}Root MSE        =   {res} 13.972
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cigs{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2} .6447271{col 26}{space 2} .0383061{col 37}{space 1}   16.83{col 46}{space 3}0.000{col 54}{space 4} .5695357{col 67}{space 3} .7199186
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS1_regression_noconstant.doc", replace ctitle(Reg)
+{txt}{stata `"shellout using `"PS1_regression_noconstant.doc"'"':PS1_regression_noconstant.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS1_regression_noconstant.txt""':seeout}
+
+{com}. twoway (lfit cigs educ) (lfit cigs educ, estopts(noconstant)) (scatter cigs educ)
+{res}{txt}
+{com}. 
+. *8d)
+. **i) 
+. 
+. gen age2 = age^2
+{txt}
+{com}. reg cigs educ age age2 white restaurn
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       807
+{txt}{hline 13}{c +}{hline 34}   F(5, 801)       = {res}     8.65
+{txt}       Model {c |} {res} 7772.46759         5  1554.49352   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 143981.215       801  179.751829   {txt}R-squared       ={res}    0.0512
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0453
+{txt}       Total {c |} {res} 151753.683       806  188.280003   {txt}Root MSE        =   {res} 13.407
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cigs{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2}-.4515013{col 26}{space 2} .1615884{col 37}{space 1}   -2.79{col 46}{space 3}0.005{col 54}{space 4} -.768688{col 67}{space 3}-.1343146
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .8257641{col 26}{space 2} .1544737{col 37}{space 1}    5.35{col 46}{space 3}0.000{col 54}{space 4} .5225431{col 67}{space 3} 1.128985
+{txt}{space 8}age2 {c |}{col 14}{res}{space 2} -.009631{col 26}{space 2} .0016817{col 37}{space 1}   -5.73{col 46}{space 3}0.000{col 54}{space 4} -.012932{col 67}{space 3}  -.00633
+{txt}{space 7}white {c |}{col 14}{res}{space 2}-.6237386{col 26}{space 2}  1.45611{col 37}{space 1}   -0.43{col 46}{space 3}0.669{col 54}{space 4}-3.481981{col 67}{space 3} 2.234504
+{txt}{space 4}restaurn {c |}{col 14}{res}{space 2}-2.796182{col 26}{space 2} 1.103552{col 37}{space 1}   -2.53{col 46}{space 3}0.011{col 54}{space 4}-4.962377{col 67}{space 3}-.6299866
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6688335{col 26}{space 2} 3.706849{col 37}{space 1}    0.18{col 46}{space 3}0.857{col 54}{space 4}-6.607451{col 67}{space 3} 7.945118
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. outreg2 using "PS1_regression2.doc", replace ctitle(Reg)
+{txt}{stata `"shellout using `"PS1_regression2.doc"'"':PS1_regression2.doc}
+{browse `"C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata"' :dir}{com} : {txt}{stata `"seeout using "PS1_regression2.txt""':seeout}
+
+{com}. 
+. **ii)
+. 
+. reg cigs educ age age2 white restaurn
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       807
+{txt}{hline 13}{c +}{hline 34}   F(5, 801)       = {res}     8.65
+{txt}       Model {c |} {res} 7772.46759         5  1554.49352   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 143981.215       801  179.751829   {txt}R-squared       ={res}    0.0512
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0453
+{txt}       Total {c |} {res} 151753.683       806  188.280003   {txt}Root MSE        =   {res} 13.407
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cigs{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2}-.4515013{col 26}{space 2} .1615884{col 37}{space 1}   -2.79{col 46}{space 3}0.005{col 54}{space 4} -.768688{col 67}{space 3}-.1343146
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .8257641{col 26}{space 2} .1544737{col 37}{space 1}    5.35{col 46}{space 3}0.000{col 54}{space 4} .5225431{col 67}{space 3} 1.128985
+{txt}{space 8}age2 {c |}{col 14}{res}{space 2} -.009631{col 26}{space 2} .0016817{col 37}{space 1}   -5.73{col 46}{space 3}0.000{col 54}{space 4} -.012932{col 67}{space 3}  -.00633
+{txt}{space 7}white {c |}{col 14}{res}{space 2}-.6237386{col 26}{space 2}  1.45611{col 37}{space 1}   -0.43{col 46}{space 3}0.669{col 54}{space 4}-3.481981{col 67}{space 3} 2.234504
+{txt}{space 4}restaurn {c |}{col 14}{res}{space 2}-2.796182{col 26}{space 2} 1.103552{col 37}{space 1}   -2.53{col 46}{space 3}0.011{col 54}{space 4}-4.962377{col 67}{space 3}-.6299866
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6688335{col 26}{space 2} 3.706849{col 37}{space 1}    0.18{col 46}{space 3}0.857{col 54}{space 4}-6.607451{col 67}{space 3} 7.945118
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. mfx, varlist(age age2)
+
+{txt}Marginal effects after regress
+      y  = Fitted values (predict)
+         = {res} 8.6864932
+{txt}{hline 9}{c TT}{hline 68}
+variable {c |}{col 17}dy/dx{col 26}Std. Err.{col 40}z{col 45}P>|z|{col 52}[    95% C.I.   ]{col 75}X
+{hline 9}{c +}{hline 68}
+     age {c |}  {res} .8257641      .15447    5.35   0.000   .523001  1.12853   41.2379
+    {txt}age2 {c |}  {res} -.009631      .00168   -5.73   0.000  -.012927 -.006335   1990.14
+{txt}{hline 9}{c BT}{hline 68}
+
+{com}. 
+. **iii)
+. ***A)
+. reg cigs educ age age2 white restaurn
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       807
+{txt}{hline 13}{c +}{hline 34}   F(5, 801)       = {res}     8.65
+{txt}       Model {c |} {res} 7772.46759         5  1554.49352   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 143981.215       801  179.751829   {txt}R-squared       ={res}    0.0512
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0453
+{txt}       Total {c |} {res} 151753.683       806  188.280003   {txt}Root MSE        =   {res} 13.407
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        cigs{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}educ {c |}{col 14}{res}{space 2}-.4515013{col 26}{space 2} .1615884{col 37}{space 1}   -2.79{col 46}{space 3}0.005{col 54}{space 4} -.768688{col 67}{space 3}-.1343146
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .8257641{col 26}{space 2} .1544737{col 37}{space 1}    5.35{col 46}{space 3}0.000{col 54}{space 4} .5225431{col 67}{space 3} 1.128985
+{txt}{space 8}age2 {c |}{col 14}{res}{space 2} -.009631{col 26}{space 2} .0016817{col 37}{space 1}   -5.73{col 46}{space 3}0.000{col 54}{space 4} -.012932{col 67}{space 3}  -.00633
+{txt}{space 7}white {c |}{col 14}{res}{space 2}-.6237386{col 26}{space 2}  1.45611{col 37}{space 1}   -0.43{col 46}{space 3}0.669{col 54}{space 4}-3.481981{col 67}{space 3} 2.234504
+{txt}{space 4}restaurn {c |}{col 14}{res}{space 2}-2.796182{col 26}{space 2} 1.103552{col 37}{space 1}   -2.53{col 46}{space 3}0.011{col 54}{space 4}-4.962377{col 67}{space 3}-.6299866
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6688335{col 26}{space 2} 3.706849{col 37}{space 1}    0.18{col 46}{space 3}0.857{col 54}{space 4}-6.607451{col 67}{space 3} 7.945118
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. rvpplot age
+{res}{txt}
+{com}. 
+. ***B)
+. predict age_res, residuals
+{txt}
+{com}. gen age_res1=age_res[_n-1]
+{txt}(1 missing value generated)
+
+{com}. reg age_res age_res1
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       806
+{txt}{hline 13}{c +}{hline 34}   F(1, 804)       = {res}     0.01
+{txt}       Model {c |} {res} 2.57931919         1  2.57931919   {txt}Prob > F        ={res}    0.9045
+{txt}    Residual {c |} {res} 143869.779       804  178.942511   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0012
+{txt}       Total {c |} {res} 143872.358       805  178.723426   {txt}Root MSE        =   {res} 13.377
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     age_res{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}age_res1 {c |}{col 14}{res}{space 2}-.0042332{col 26}{space 2} .0352595{col 37}{space 1}   -0.12{col 46}{space 3}0.904{col 54}{space 4}-.0734448{col 67}{space 3} .0649784
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0129003{col 26}{space 2} .4711827{col 37}{space 1}    0.03{col 46}{space 3}0.978{col 54}{space 4}-.9119931{col 67}{space 3} .9377938
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ***C)
+. hist age_res, frequency normal width(1)
+{txt}(bin={res}86{txt}, start={res}-15.029084{txt}, width={res}1{txt})
+{res}{txt}
+{com}. 
+. 
+. 
+{txt}end of do-file
+
+{com}. view "C:\Users\ramon\Desktop\UZH\Empirical Methods\Problem Sets\Problem Set 1\Stata\log_gmuer_ramon_PS1.smcl"
+
+. sort age
+
+. gen age_res11=age_res[_n-1]
+{txt}(1 missing value generated)
+
+{com}. reg age_res age_res11
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       806
+{txt}{hline 13}{c +}{hline 34}   F(1, 804)       = {res}     0.18
+{txt}       Model {c |} {res} 32.4118609         1  32.4118609   {txt}Prob > F        ={res}    0.6706
+{txt}    Residual {c |} {res} 143902.714       804  178.983476   {txt}R-squared       ={res}    0.0002
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0010
+{txt}       Total {c |} {res} 143935.126       805  178.801399   {txt}Root MSE        =   {res} 13.378
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     age_res{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}age_res11 {c |}{col 14}{res}{space 2}  .015008{col 26}{space 2} .0352678{col 37}{space 1}    0.43{col 46}{space 3}0.671{col 54}{space 4}-.0542198{col 67}{space 3} .0842359
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0085871{col 26}{space 2} .4712367{col 37}{space 1}    0.02{col 46}{space 3}0.985{col 54}{space 4}-.9164123{col 67}{space 3} .9335865
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. exit, clear
