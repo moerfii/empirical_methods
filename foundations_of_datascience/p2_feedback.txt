@@ -1,0 +1,38 @@
+# Repository M52-FDS20 Practical 2
+
+## Task Naive Bayes: 10.0/10
+
+NB: The implementation of NB is OK.
+
+## Task Experiments: 2.0/2
+
+The implementation of the experiment function is OK
+
+## Task Experiment IRIS: 3.0/3
+
+Experiment Iris is OK
+
+## Task Experiment Voting: 3.0/3
+
+Experiment Voting is OK
+
+## Task Experiment Car: 3.0/3
+
+Experiment Car is OK
+
+## Task Experiment Cancer: 2.0/3
+
+1.0 point deducted -- Experiment Cancer: You should apply one-hot encoding to features [breast, breast-quad], as their values don't have any order.
+
+## Task Experiment Ionosphere: 3.0/3
+
+Experiment Ionospher is OK
+
+## Task Experiment Sonar: 3.0/3
+
+Experiment Sonar is OK
+
+Overall: 29.0/30
+
+
+
